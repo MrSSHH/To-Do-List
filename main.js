@@ -1,5 +1,6 @@
- "use strict"
- import { mainMenu } from "./game.js";
+"use strict"
+import { mainMenu } from "./game.js";
+import { createTasksFileIfNotExists } from "./utils.js";
 
-
-mainMenu();
+await createTasksFileIfNotExists();
+await mainMenu();
