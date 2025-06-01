@@ -3,9 +3,11 @@
  * Helps maintain consistent messages and makes localization easy.
  */
 
-export let strings = {
+import path from 'node:path';
+
+export const strings = {
   // Absolute or relative path to the task data JSON file.
-  tasksJsonPath: "/workspaces/To-Do-List/tasks.json",
+  tasksJsonPath: path.resolve('tasks.json'),
 
   // Text used in interactive prompts, warnings, confirmations, etc.
   promptScreensText: {

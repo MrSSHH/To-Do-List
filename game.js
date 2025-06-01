@@ -62,15 +62,18 @@ export async function listTasksPrompt(path = strings.tasksJsonPath) {
 
     const tasks = await readJsonFile(path); // Read the current task list
 
+    // If no tasks are found return false
     if (!tasks.length) {
         console.error('There aren\'t any tasks written');
-        return;
+        return false;
     }
 
     // Print each task with its corresponding number
     for (let task = 0; task < tasks.length; task++) {
         console.log(`${task + 1} - ${tasks[task].task}`);
     }
+    // Return true if the function had found tasks.
+    return true;
 }
 
 
@@ -78,20 +81,24 @@ export async function listTasksPrompt(path = strings.tasksJsonPath) {
 export async function removeTasksPrompt(path = strings.tasksJsonPath) {
     while (true) {
         console.clear(); // Clear screen for clean output
-        await listTasksPrompt(); // Show current tasks
-        console.log(strings.promptScreensText.taskPrompt); // Ask for task to remove
+        
+        // Show current tasks if tasks are found
+        if (await listTasksPrompt()) { 
+            console.log(strings.promptScreensText.taskPrompt); // Ask for task to remove
 
-        let taskNumber = await rl.question("Task number: "); // Get user input
+            let taskNumber = await rl.question("Task number: "); // Get user input
 
-        // Validate that the input is a number
-        if (!isNumberInput(taskNumber)) {
-            console.error('Please enter a valid task number');
-            await waitForEnterPress();
-            continue;
+            // Validate that the input is a number
+            if (!isNumberInput(taskNumber)) {
+                console.error('Please enter a valid task number');
+                await waitForEnterPress();
+                continue;
+            }
+
+            // Remove the task and confirm
+            await removeTask(strings.tasksJsonPath, taskNumber); 
         }
 
-        // Remove the task and confirm
-        await removeTask(strings.tasksJsonPath, taskNumber);
         await waitForEnterPress();
         break;
     }

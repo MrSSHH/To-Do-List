@@ -11,7 +11,6 @@
 import { readFile, writeFile, access, constants } from 'fs/promises';
 import { stdin as input, stdout as output } from 'node:process';
 import readline from 'readline/promises';
-import path from 'node:path';
 import { strings } from './globalData.js';
 
 /* =========  Small Pure Helpers  ================================= */
@@ -61,11 +60,11 @@ async function checkFileExists(path) {
  * @param {string} file_loc - Path to the tasks.json file 
  * @param {string} content  - Initial content to write. Default is an empty array as json.
  */
-export async function createTasksFileIfNotExists(file_loc=path.resolve('tasks.json'), content = '[]') {
-    if (!checkFileExists(file_loc)) {
+export async function createTasksFileIfNotExists(file_loc=strings.tasksJsonPath, content = '[]') {
+    if (! (await checkFileExists(file_loc))) {
         await writeFile(file_loc, content, 'utf-8');
-        strings.tasksJsonPath = file_loc;
         console.log('Created a tasks.json file since I couldn\'t find one');
+        await waitForEnterPress();
     }
 }
 
