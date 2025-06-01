@@ -68,8 +68,8 @@ Each file is **self‑contained**. Replace or extend a module without touching t
 
 ```bash
 # Clone
-git clone https://github.com/<your‑username>/todo-cli.git
-cd todo-cli
+git clone https://github.com/MrSSHH/To-Do-List.git
+cd To-Do-List
 
 # (Optional) Install dependencies – none required for core app
 npm install
