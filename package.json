@@ -2,5 +2,8 @@
   "type": "module",
   "devDependencies": {
     "prettier": "^3.5.3"
+  },
+  "dependencies": {
+    "dayjs": "^1.11.13"
   }
 }
