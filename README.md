@@ -1,4 +1,3 @@
-# To-Do-List
 # To‑Do List CLI 📋
 
 ![Node.js](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen)
@@ -46,13 +45,30 @@ A minimal, **modular** command‑line to‑do list application written in modern
 ## Project Structure
 
 ```
-📦 todo-cli
-├── main.js            # Entry point – starts the app
-├── game.js            # CLI flow controller (menus & actions)
-├── globaldata.js      # Global constants & readline interface
-├── tasks.json         # Persisted task data (auto‑generated)
-└── utils.js           # All helper-functions
-└── README.md          # You are here
+/project-root
+│
+├── 📁 src/
+│   ├── models/         # Domain models (classes like Task)
+│   │   └── Task.js
+│   │
+│   ├── game/           # Game logic
+│   │   └── game.js
+│   │
+│   ├── data/           # Static and global data
+│   │   ├── globalData.js
+│   │   └── tasks.json
+│   │
+│   ├── utils/          # Utility functions
+│   │   └── utils.js
+│   │
+│   └── main.js         # App entry point
+│
+├── package.json
+└── README.md
+```
+
+Each file is **self‑contained**. Replace or extend a module without touching the rest of the codebase.
+
 ```
 
 Each file is **self‑contained**. Replace or extend a module without touching the rest of the codebase.
