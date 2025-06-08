@@ -90,12 +90,11 @@ node main.js
 Below is a sample session (💬 user input in **bold**):
 
 ```
-Welcome to todo‑list app!
-What would you like to do?
-1) Add a task
-2) Remove a task
-3) List tasks
-4) Exit
+Welcome to the To-Do List app!
+1 - ➕ Add a task
+2 - 🗑️ Remove a task
+3 - 📋 List tasks
+4 - 🚪 Exit
 > **1**
 Please enter the desired task!
 > **Buy groceries**

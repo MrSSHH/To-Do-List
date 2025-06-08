@@ -24,7 +24,7 @@ export async function mainMenu() {
 
         try {
             // Prompt user to select an option
-            let option = await rl.question(`Select: `);
+            let option = await rl.question(`> `);
 
             // Handle user input based on the selected option
             switch(+option.trim()) {
