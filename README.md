@@ -66,11 +66,6 @@ A minimal, **modular** command‑line to‑do list application written in modern
 ├── package.json
 └── README.md
 ```
-
-Each file is **self‑contained**. Replace or extend a module without touching the rest of the codebase.
-
-```
-
 Each file is **self‑contained**. Replace or extend a module without touching the rest of the codebase.
 
 ---
